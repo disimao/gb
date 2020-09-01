@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import (
     JWTTokenRefreshView,
     JWTTokenObtainPairView,
@@ -7,4 +7,5 @@ from .views import (
 urlpatterns = [
     path('token/', JWTTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', JWTTokenRefreshView.as_view(), name='token_refresh'),
+    path('', include('api.cashback.urls')),
 ]
